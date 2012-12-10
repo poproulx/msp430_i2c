@@ -13,8 +13,8 @@ $(PATH_OBJ)/i2c.o:i2c.c i2c.h
 $(PATH_OBJ)/main.o:main.c i2c.h
 	msp430-gcc -mmcu=msp430f2013 -O2 -Wall -g -c $< -o $@
 
-$(PATH_BIN)/$(NAME).elf:main.o i2c.o
-	msp430-gcc -mmcu=msp430f2013 -o $@ $^
+$(PATH_BIN)/$(NAME):main.o i2c.o
+	msp430-gcc -mmcu=msp430f2013 -o $@.elf $^
 
 clean:
 	rm -f ../obj/*.o
